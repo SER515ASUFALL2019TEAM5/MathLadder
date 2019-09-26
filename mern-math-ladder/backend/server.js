@@ -27,6 +27,13 @@ const uri = process.env.ATLAS_URI;
 mongoose.connect(uri,{ useNewUrlParser: true, useUnifiedTopology: true });
 const connection = mongoose.connection;
 connection.once('open',()=>{console.log("Mongo db connection established successfully")})
+
+const rolesRouter = require('./routes/roles');
+const usersRouter = require('./routes/users');
+
+  app.use('/roles', rolesRouter);
+  app.use('/users', usersRouter);
+
 app.listen(port,()=>{
    console.log('server is running on : ${port}');
 });
