@@ -8,7 +8,7 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
-  const rid = req.body.rid;
+  const rid = Number(req.body.rid);
   const role = req.body.role;
 
   const newRole = new Roles({rid, role,});
