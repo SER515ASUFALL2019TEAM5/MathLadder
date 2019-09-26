@@ -31,8 +31,8 @@ connection.once('open',()=>{console.log("Mongo db connection established success
 const rolesRouter = require('./routes/roles');
 const usersRouter = require('./routes/users');
 
-  app.use('/roles', rolesRouter);
-  app.use('/users', usersRouter);
+app.use('/roles', rolesRouter);
+app.use('/users', usersRouter);
 
 app.listen(port,()=>{
    console.log('server is running on : ${port}');
