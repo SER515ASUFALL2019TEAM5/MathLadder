@@ -7,6 +7,7 @@ const UserSchema = new Schema({
   email: { type: String, required: true },
   password: { type: String, required: true },
   status: { type: String, required: true },
+  date_of_joining: {type: Date, required: false},
 }, {
   timestamps: true,
 });
