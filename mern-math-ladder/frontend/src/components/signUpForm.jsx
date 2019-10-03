@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 
+
 class SignUpForm extends Component {
     constructor() {
         super();
@@ -51,7 +52,11 @@ class SignUpForm extends Component {
         axios.post('http://localhost:5000/users/add', user)
         .then(res => console.log(res.data));
 
-        window.location = '/dashboarddummy'
+        alert('user name is ' + user.username +' and user email id is '+user.email);
+        
+
+        
+
         
     }
 
@@ -85,7 +90,8 @@ class SignUpForm extends Component {
               </div>
 
               <div className="FormField">
-                  <button className="FormField__Button mr-20" onChange={this.handleSubmit} >Sign Up</button> <Link to="/sign-in" className="FormField__Link">I'm already member</Link>
+                  <button className="FormField__Button mr-20" onChange={this.handleSubmit}>Sign Up</button> <Link to="/sign-in" className="FormField__Link">I'm already member</Link>
+                  
               </div>
             </form>
           </div>
