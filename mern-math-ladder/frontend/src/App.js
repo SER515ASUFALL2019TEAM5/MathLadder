@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 import { HashRouter as Router, Route, Link, NavLink } from 'react-router-dom'
 import signInForm from './components/signInForm'
 import signUpForm from './components/signUpForm'
-import dashboarddummy from './components/dashboarddummy'
+
 
 class App extends Component {
   render () {
