@@ -52,7 +52,7 @@ class SignUpForm extends Component {
         axios.post('http://localhost:5000/users/add', user)
         .then(res => console.log(res.data));
 
-        alert('user name is ' + user.username +' and user email id is '+user.email);
+        alert('User added successfully');
         
 
         
