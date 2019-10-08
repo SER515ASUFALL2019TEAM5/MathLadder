@@ -21,7 +21,9 @@ status,
 });
 
   newUser.save()
-    .then(() => res.json('User added!'))
+    //.then(() => res.json('User added!'))
+    .then(() => res.status(200))
+    
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
