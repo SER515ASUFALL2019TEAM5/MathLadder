@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-
-
 class SignUpForm extends Component {
     constructor() {
         super();
@@ -33,7 +31,6 @@ class SignUpForm extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        // e.target.reset();
         document.getElementById("create-signup-form").reset();
         const user ={
           username: this.state.username,
@@ -41,8 +38,6 @@ class SignUpForm extends Component {
           email:this.state.email,
           status: "active"
         }
-        console.log('The form was submitted with the following data:');
-        console.log(user);
         axios.post('http://localhost:5000/users/add', user)
         .then(res => console.log(res.data));
         window.location.href = "http://localhost:3000/#/react-auth-ui/sign-in"
