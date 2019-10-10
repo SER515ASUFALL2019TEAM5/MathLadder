@@ -26,9 +26,9 @@ class SignInForm extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-
-        console.log('The form was submitted with the following data:');
-        console.log(this.state);
+        e.target.reset();
+        // console.log('The form was submitted with the following data:');
+        // console.log(this.state);
     }
 
     render() {
@@ -37,12 +37,12 @@ class SignInForm extends Component {
             <form onSubmit={this.handleSubmit} className="FormFields" onSubmit={this.handleSubmit}>
             <div className="FormField">
                 <label className="FormField__Label" htmlFor="email">E-Mail Address</label>
-                <input type="email" id="email" className="FormField__Input" placeholder="Enter your email" name="email" value={this.state.email} onChange={this.handleChange} />
+                <input type="email" id="email" className="FormField__Input" placeholder="Enter your email" name="email" required = {true} value={this.state.email} onChange={this.handleChange} />
               </div>
 
               <div className="FormField">
                 <label className="FormField__Label" htmlFor="password">Password</label>
-                <input type="password" id="password" className="FormField__Input" placeholder="Enter your password" name="password" value={this.state.password} onChange={this.handleChange} />
+                <input type="password" id="password" className="FormField__Input" placeholder="Enter your password" name="password" required = {true} value={this.state.password} onChange={this.handleChange} />
               </div>
 
               <div className="FormField">
