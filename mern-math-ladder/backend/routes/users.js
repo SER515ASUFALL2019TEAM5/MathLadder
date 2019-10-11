@@ -8,23 +8,42 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
-  const username = req.body.username;
-  const email = req.body.email;
-  const password = req.body.password;
-  const status = req.body.status;
+
+  User.findOne({ email: req.body.email }).then(user => {
+    if (user) {
+      return res.status(400).json({ email: "Email already exists" });
+    }else{
+      const newUser = new User({
+        username: req.body.username,
+        email: req.body.email,
+        password: req.body.password,
+        status: req.body.status
+      });
+      newUser.save()
+      //.then(() => res.json('User added!'))
+      .then(() => res.status(200))
+      
+      .catch(err => res.status(400).json('Error: ' + err));
+    }
+  });
+      
+  // const username = req.body.username;
+  // const email = req.body.email;
+  // const password = req.body.password;
+  // const status = req.body.status;
 
 
-  const newUser = new User({username,
-email,
-password,
-status,
-});
+  // const newUser = new User({username,
+  // email,
+  // password,
+  // status,
+  // });
 
-  newUser.save()
-    //.then(() => res.json('User added!'))
-    .then(() => res.status(200))
+  // newUser.save()
+  //   //.then(() => res.json('User added!'))
+  //   .then(() => res.status(200))
     
-    .catch(err => res.status(400).json('Error: ' + err));
+  //   .catch(err => res.status(400).json('Error: ' + err));
 });
 
 module.exports = router;
