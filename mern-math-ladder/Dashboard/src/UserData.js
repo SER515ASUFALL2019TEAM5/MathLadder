@@ -3,7 +3,7 @@ import React, {
   } from 'react'
   
   const USER_SERVICE_URL = 'http://localhost:5000/users/';
-  class UserTableHOC extends Component {
+  class UserData extends Component {
     constructor(props) {
       super(props);
       this.state = {
@@ -11,7 +11,7 @@ import React, {
         users: []
       };
     }
-    render = () => < SimpleUserTable data = {
+    render = () => < UserData userData = {
       this.state.users
     }
     isFetching = {
@@ -21,6 +21,6 @@ import React, {
     componentDidMount() {
       this.fetchUsers();
     }
-    fetchUsers = < REDACTED >
+    
   }
   export default UserData
