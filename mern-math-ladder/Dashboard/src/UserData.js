@@ -1,3 +1,5 @@
+//Reference https://blog.logrocket.com/patterns-for-data-fetching-in-react-981ced7e5c56/
+
 import React, {
     Component
   } from 'react'
@@ -19,7 +21,7 @@ import React, {
     }
     />;
     componentDidMount() {
-      this.fetchUsers();
+     this.fetchUsers();
     }
     
   }
