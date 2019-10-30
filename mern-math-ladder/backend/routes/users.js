@@ -26,24 +26,17 @@ router.route('/add').post((req, res) => {
       .catch(err => res.status(400).json('Error: ' + err));
     }
   });
-      
-  // const username = req.body.username;
-  // const email = req.body.email;
-  // const password = req.body.password;
-  // const status = req.body.status;
+});
 
-
-  // const newUser = new User({username,
-  // email,
-  // password,
-  // status,
-  // });
-
-  // newUser.save()
-  //   //.then(() => res.json('User added!'))
-  //   .then(() => res.status(200))
-    
-  //   .catch(err => res.status(400).json('Error: ' + err));
+router.route('/login').post((req, res) => {
+  const email = req.body.email;
+  const password = req.body.password;
+  console.log(email);
+  User.findOne({ email }).then(user => {
+    if (!user) {
+      return res.status(404).json({ emailnotfound: "Email not found" });
+    }
+  });
 });
 
 module.exports = router;
