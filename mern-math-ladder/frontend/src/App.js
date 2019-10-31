@@ -1,10 +1,9 @@
-import logo from './logo.svg'
 import './App.css'
 import React, { Component } from 'react'
-import { HashRouter as Router, Route, Link, NavLink } from 'react-router-dom'
+import { HashRouter as Router, Route, NavLink } from 'react-router-dom'
 import signInForm from './components/signInForm'
 import signUpForm from './components/signUpForm'
-
+import homePage from './components/homePage'
 
 class App extends Component {
   render () {
@@ -40,6 +39,8 @@ class App extends Component {
             <Route exact path='/' component={signUpForm}>
             </Route>
             <Route path='/sign-in' component={signInForm}>
+            </Route>
+            <Route path='/homePage' component={homePage}>
             </Route>
           </div>
         </div>

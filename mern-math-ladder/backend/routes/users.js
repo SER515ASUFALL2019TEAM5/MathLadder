@@ -20,7 +20,6 @@ router.route('/add').post((req, res) => {
         status: req.body.status
       });
       newUser.save()
-      //.then(() => res.json('User added!'))
       .then(() => res.status(200))
       
       .catch(err => res.status(400).json('Error: ' + err));
@@ -31,7 +30,6 @@ router.route('/add').post((req, res) => {
 router.route('/login').post((req, res) => {
   const email = req.body.email;
   const password = req.body.password;
-  console.log(email);
   User.findOne({ email }).then(user => {
     if (!user) {
       return res.status(404).json({ emailnotfound: "Email not found" });

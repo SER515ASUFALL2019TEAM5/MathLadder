@@ -32,13 +32,16 @@ class SignInForm extends Component {
           email:this.state.email
         }
         axios.post('http://localhost:5000/users/login', user)
-        .then(res => console.log(res.data));
+        .then(res => console.log(res.data))
+        .catch(error => alert("Email Not Found"));
+
+        window.location.href = "http://localhost:3000/#/react-auth-ui/homePage"
     }
 
     render() {
         return (
         <div className="FormCenter">
-            <form onSubmit={this.handleSubmit} className="FormFields" onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit} className="FormFields">
             <div className="FormField">
                 <label className="FormField__Label" htmlFor="email">E-Mail Address</label>
                 <input type="email" id="email" className="FormField__Input" placeholder="Enter your email" name="email" required = {true} value={this.state.email} onChange={this.handleChange} />
