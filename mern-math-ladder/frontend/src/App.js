@@ -4,6 +4,8 @@ import { HashRouter as Router, Route, NavLink } from 'react-router-dom'
 import signInForm from './components/signInForm'
 import signUpForm from './components/signUpForm'
 import homePage from './components/homePage'
+import homePageEducator from './components/homePageEducator'
+import homePageStudent from './components/homePageStudent'
 
 class App extends Component {
   render () {
@@ -41,6 +43,10 @@ class App extends Component {
             <Route path='/sign-in' component={signInForm}>
             </Route>
             <Route path='/homePage' component={homePage}>
+            </Route>
+            <Route path='/homePageEducator' component={homePageEducator}>
+            </Route>
+            <Route path='/homePageStudent' component={homePageStudent}>
             </Route>
           </div>
         </div>
