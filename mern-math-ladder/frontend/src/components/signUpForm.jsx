@@ -11,7 +11,7 @@ class SignUpForm extends Component {
             email: '',
             password: '',
             username: '',
-            educator: false,
+            educator: true,
             student: false,
             hasAgreed: false
         };
@@ -34,7 +34,9 @@ class SignUpForm extends Component {
           username: this.state.username,
           password:this.state.password,
           email:this.state.email,
-          status: "active"
+          status: "active",
+          educator: this.state.educator,
+          student: this.state.student
         }
         axios.post('http://localhost:5000/users/add', user)
         .then(res => console.log(res.data));
