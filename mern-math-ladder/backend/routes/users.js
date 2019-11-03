@@ -17,8 +17,11 @@ router.route('/add').post((req, res) => {
         username: req.body.username,
         email: req.body.email,
         password: req.body.password,
-        status: req.body.status
+        status: req.body.status,
+        educator: req.body.educator,
+        student: req.body.student
       });
+      console.log(newUser);
       newUser.save()
       .then(() => res.status(200))
       
