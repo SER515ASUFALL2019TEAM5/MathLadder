@@ -7,6 +7,8 @@ const UserSchema = new Schema({
   email: { type: String, required: true },
   password: { type: String, required: true },
   status: { type: String, required: true },
+  educator:  { type: Boolean, required: true },
+  student:  { type: Boolean, required: true }
 }, {
   timestamps: true,
 });
