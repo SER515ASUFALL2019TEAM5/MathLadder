@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link href="./Example 25 _ Rick&#39;s code_files/css" rel="stylesheet" type="text/css">
+	
+	<title>Let us get our Math Right!!</title>
+	
+	<style>
+
+		/* You don't acutally need any of this styles */
+
+		html{
+			font-size:10px;
+		}
+		body{
+			font-size:2rem;
+			font-family: 'Lato', sans-serif;
+			font-size: 300;
+			-webkit-font-smoothing: antialiased;
+			background: white;
+			color: black;
+			padding: 0 2em;
+		}
+		h1{
+			font-size: 2em;
+			font-weight: 300;
+		}
+		#drop{
+			width: 200px;
+			height: 200px;
+			border: 4px dashed black;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			padding: 1em 1em 2em 1em;
+			overflow-y: hidden;
+		}
+		.dragable-item{
+
+			width: 100px;
+			height: 100px;
+			background: black;
+			color: white;
+			margin: 1em;
+			text-align: center;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			padding: 1em;
+			float: left;
+		}
+		#total-costs{
+			padding: 1em 0 0 0;
+		}
+		a{
+			clear: both;
+			color: white;
+			text-decoration: none;
+			padding-top: 1em;
+			display: block;
+		}
+		a:hover{
+			color: blue;
+		}
+
+		*[draggable=true] {
+		  -moz-user-select:none;
+		  -khtml-user-drag: element;
+		  cursor: move;
+		}
+	</style>
+</head>
+<body>
+
+<h1>Costs Calculator:</h1>
+<p>Consider you went to shopping with your dad in this pleasant weather to a Poultry and you selected a wide number of chcickens. Now you got to pay and you have to use use your math to pay shopkeeper since his calculator is broken. Use you are math skills and make your own bills</p>
+<p> Now multiply numbers of chickens with price of each chicken to get your bill!</p>
+
+<div id="drop">
+	<div id="output"></div>
+</div>
+
+<div id="total-costs">
+	You have to pay to shop keeper: <span>0</span> USD
+</div>
+
+<div draggable="true" class="dragable-item" data-title="Cost of chicken" data-price="10">Chicken at 10 USD</div>
+<div draggable="true" class="dragable-item" data-title="Number of chickens" data-price="25">25 chickens</div>
+
+
+<div style="clear:both;"></div>
+
+
+<script src="./Example 25 _ Rick&#39;s code_files/jquery.min.js"></script>
+<script>
+// Callback function when cancelling the event
+function cancel(e) {
+  if (e.preventDefault) {
+    e.preventDefault();
+  }
+  return false;
+}
+
+function refresh_total_costs(total_costs){
+
+	$('#total-costs span').text(total_costs);
+}
+
+$(document).ready(function() {
+
+		var total_costs = 1;
+
+		refresh_total_costs(total_costs);
+
+		// Get the #drop zone
+		var drop = document.getElementById('drop');
+
+		var draggedItem = null;
+
+		// Add the Event Listener to each draggable item
+		$('.dragable-item').each(function(index){
+			$(this)[0].addEventListener('dragstart',function(e){
+
+				draggedItem = jQuery(this);
+
+				e.dataTransfer.setData('Text', this.id); // required otherwise doesn't work
+
+			},false);
+		});
+
+		drop.addEventListener('dragover', cancel);
+		drop.addEventListener('dragenter', cancel);
+
+		drop.addEventListener('drop', function (e) {
+
+		   e.preventDefault();
+
+		   // Let's play with the data attribute
+		   var html = $(draggedItem).data('title') + "  " +  $(draggedItem).data('price') + "<br />";
+
+		   $('#output').prepend( html );
+
+		   total_costs *= parseInt($(draggedItem).data('price'));
+
+		   refresh_total_costs(total_costs);
+
+		  return false;
+		});
+});
+
+</script>
+
+
+<p>
+	
+</p>
+
+
+
+</body></html>
