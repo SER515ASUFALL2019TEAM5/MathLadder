@@ -1,0 +1,3 @@
+[submodule "mern-math-ladder/studentDashboard"]
+	path = mern-math-ladder/studentDashboard
+	url = /studentDashboard
