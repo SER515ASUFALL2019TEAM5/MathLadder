@@ -1,3 +1,5 @@
+/* @author Vraj Kapadia
+*/ 
 import React from "react";
 import PropTypes from "prop-types";
 // @material-ui/core components
@@ -11,6 +13,17 @@ import TableCell from "@material-ui/core/TableCell";
 import styles from "assets/jss/material-dashboard-react/components/tableStyle.js";
 
 const useStyles = makeStyles(styles);
+
+constructor(props) {
+  super(props);
+  this.state = {
+      isFetching: false,
+      users: []
+  };
+  componentDidMount() {
+    this.fetchUsers();
+    this.timer = setInterval(() => this.fetchUsers(), 5000);
+
 
 export default function CustomTable(props) {
   const classes = useStyles();
