@@ -1,3 +1,8 @@
+/*
+Author : Vraj Kapadia
+*/
+
+
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 // creates a beautiful scrollbar
