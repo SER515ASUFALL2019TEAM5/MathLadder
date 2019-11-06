@@ -2,23 +2,23 @@
 Author : Chandan, Sakshi
 */
 
+const router = require('express').Router()
+const User = require('../models/user')
+const cors = require("cors")
+const bcrypt = require("bcrypt")
 
-
-const router = require('express').Router();
-let User = require('../models/user.model');
-
-router.route('/').get((req, res) => {
-  User.find()
-    .then(users => res.json(users))
-    .catch(err => res.status(400).json('Error: ' + err));
-});
+router.use(cors())
+process.env.SECRET_KEY = 'secret'
 
 router.route('/add').post((req, res) => {
 
-  User.findOne({ email: req.body.email }).then(user => {
+  User.findOne({ email: req.body.email })
+  .then(user => {
     if (user) {
-      return res.status(400).json({ email: "Email already exists" });
-    }else{
+      res.json({error : 'User already exist'})
+    }
+    else
+    {
       const newUser = new User({
         username: req.body.username,
         email: req.body.email,
@@ -27,23 +27,41 @@ router.route('/add').post((req, res) => {
         educator: req.body.educator,
         student: req.body.student
       });
-      console.log(newUser);
-      newUser.save()
-      .then(() => res.status(200))
-      
-      .catch(err => res.status(400).json('Error: ' + err));
+
+      User.create(newUser)
+      .then(user => {
+          res.json({status: user.email + ' registered'});
+      })
+      .catch(err => {
+          res.send('error: ' + err);
+      })
     }
-  });
+  })
+  .catch(err => {
+      res.send('error: ' + err)
+  })
 });
 
 router.route('/login').post((req, res) => {
   const email = req.body.email;
   const password = req.body.password;
-  User.findOne({ email }).then(user => {
+  User.findOne({ email, password })
+  .then(user => {
     if (!user) {
-      return res.status(404).json({ emailnotfound: "Email not found" });
+      res.json({error : "User doesnot exist"});
     }
-  });
+    else
+    {
+      res.json({status : "User signed in Successfully"})
+    }
+  })
+  .catch(err => {
+    res.send('error: ' + err)
+  })
 });
+
+router.route('/profile').post((req, res) => {
+
+})
 
 module.exports = router;
