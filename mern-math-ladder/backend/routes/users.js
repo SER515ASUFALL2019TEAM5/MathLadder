@@ -27,7 +27,7 @@ router.route('/add').post((req, res) => {
         educator: req.body.educator,
         student: req.body.student
       });
-
+      console.log(newUser);
       User.create(newUser)
       .then(user => {
           res.json({status: user.email + ' registered'});
