@@ -37,9 +37,10 @@ class Register extends Component {
             educator: this.state.educator,
             student: this.state.student
           }
-          console.log(user);
+
         register(user).then(res => {
-            this.props.history.push('/login');
+            if(res.status == 200)
+              this.props.history.push('/login');
         })  
     }
 

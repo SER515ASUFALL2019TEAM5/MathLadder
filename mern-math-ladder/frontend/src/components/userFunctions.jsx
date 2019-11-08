@@ -11,11 +11,10 @@ export const register = newUser => {  //this newUser came from form of register
         student: newUser.student
     })
     .then(response => {
-        console.log(response)
-        console.log('Registered');
+        return response
     })
     .catch(err => {
-        console.log(err)
+        return err
     })
 }
 
@@ -26,6 +25,7 @@ export const login = user => {
         email:user.email
     })
     .then(response => {
+        localStorage.setItem('token', response.data)
         return response.data
     })
     .catch(err => {
