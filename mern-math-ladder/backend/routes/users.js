@@ -6,6 +6,7 @@ const router = require('express').Router()
 const User = require('../models/user')
 const cors = require("cors")
 const bcrypt = require("bcrypt")
+const jwt = require("jsonwebtoken")
 
 router.use(cors())
 process.env.SECRET_KEY = 'secret'
@@ -27,7 +28,6 @@ router.route('/add').post((req, res) => {
         educator: req.body.educator,
         student: req.body.student
       });
-      console.log(newUser);
       User.create(newUser)
       .then(user => {
           res.json({status: user.email + ' registered'});
@@ -45,6 +45,7 @@ router.route('/add').post((req, res) => {
 router.route('/login').post((req, res) => {
   const email = req.body.email;
   const password = req.body.password;
+
   User.findOne({ email, password })
   .then(user => {
     if (!user) {
@@ -52,6 +53,17 @@ router.route('/login').post((req, res) => {
     }
     else
     {
+      const payload = {
+        _id: user.id,
+        username: user.username,
+        email: user.email,
+        educator: user.educator,
+        student: user.student
+      }
+      const token = jwt.sign(payload, process.env.SECRET_KEY,{
+        expiresIn: 1440
+      })
+      res.send(token)
       res.json({status : "User signed in Successfully"})
     }
   })
@@ -63,5 +75,7 @@ router.route('/login').post((req, res) => {
 router.route('/profile').post((req, res) => {
 
 })
+
+
 
 module.exports = router;
