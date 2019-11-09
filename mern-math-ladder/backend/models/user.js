@@ -13,7 +13,7 @@ const UserSchema = new schema({
   status: { type: String, required: true },
   educator:  { type: Boolean, required: true },
   student:  { type: Boolean, required: true },
-  questions: [{type: schema.Types.ObjectId, ref: 'assignment'}]
+  questions: [{type: schema.Types.ObjectId, ref: 'Assignment'}]
 }, {
   timestamps: true,
 });

@@ -18,7 +18,7 @@ const optionSchema = new schema ({
 const assignmentSchema = new schema({
     user: {
         type: schema.Types.ObjectId,
-         ref: 'user'
+         ref: 'users'
     },
     question: String,
     options: [optionSchema],

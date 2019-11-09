@@ -16,7 +16,11 @@ router.route('/add').post((req, res) => {
   User.findOne({ email: req.body.email })
   .then(user => {
     if (user) {
-      res.json({error : 'User already exist'})
+      console.log("400")
+      res.status(400)
+      const e = new Error('Not Found');
+      e.status = 404;
+      res.send(e);
     }
     else
     {
@@ -30,14 +34,19 @@ router.route('/add').post((req, res) => {
       });
       User.create(newUser)
       .then(user => {
+          res.statusCode = 200
           res.json({status: user.email + ' registered'});
       })
       .catch(err => {
+          console.log("400")
+          res.status(400)
           res.send('error: ' + err);
       })
     }
   })
   .catch(err => {
+    console.log("400")
+    res.status(400)
       res.send('error: ' + err)
   })
 });
