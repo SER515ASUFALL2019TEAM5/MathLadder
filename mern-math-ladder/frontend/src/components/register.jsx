@@ -60,6 +60,7 @@ class Register extends Component {
                       placeholder="Enter your name"
                       value={this.state.username}
                       onChange={this.onChange}
+                      required = {true}
                     />
                    </div>
                   <div className="form-group">
@@ -83,6 +84,7 @@ class Register extends Component {
                       placeholder="Password"
                       value={this.state.password}
                       onChange={this.onChange}
+                      required = {true}
                     />
                   </div>
                   <div className="form-group">
