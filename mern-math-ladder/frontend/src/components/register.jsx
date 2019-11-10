@@ -39,7 +39,7 @@ class Register extends Component {
           }
 
         register(user).then(res => {
-            if(res.status == 200)
+            if(res.status === 200)
               this.props.history.push('/login');
         })  
     }
@@ -49,7 +49,7 @@ class Register extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-6 mt-5 mx-auto">
-                <form noValidate onSubmit={this.onSubmit}>
+                <form validate onSubmit={this.onSubmit}>
                   <h1 className="h3 mb-3 font-weight-normal">Please sign Up</h1>
                   <div className="form-group">
                   <label htmlFor="username">Enter your full name</label>

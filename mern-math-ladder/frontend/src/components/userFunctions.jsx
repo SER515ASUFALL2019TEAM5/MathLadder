@@ -32,3 +32,17 @@ export const login = user => {
         console.log(err)
     })
 }
+
+export const assignmentCreatedByUser = assignment => {
+    const token = localStorage.token;
+    return axios
+    .get('http://localhost:5000/assignment/getAssignmentCreatedByUser', {
+        headers: {"Authorization" : `Bearer ${token}`}
+    })
+    .then(response => {
+            return response.data
+    })
+    .catch(err => {
+        console.log(err);
+    })
+}

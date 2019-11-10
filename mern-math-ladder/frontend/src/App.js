@@ -63,7 +63,7 @@ import Navbar from './components/NavBar'
 import Landing from './components/landing'
 import Login from './components/Login'
 import Register from './components/register'
-import Profile from './components/Profile'
+import InstructorProfile from './components/InstructorProfile';
 
 class App extends Component {
   render () {
@@ -75,7 +75,7 @@ class App extends Component {
           <div className = "container">
               <Route exact path = "/add" component = {Register}/>
               <Route exact path = "/login" component = {Login}/>
-              <Route exact path = "/profile" component = {Profile}/>
+              <Route exact path = "/profile" component = {InstructorProfile}/>
           </div>
         </div>
       </Router>  
