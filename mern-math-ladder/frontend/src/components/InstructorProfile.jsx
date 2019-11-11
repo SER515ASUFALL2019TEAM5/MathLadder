@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {assignmentCreatedByUser} from './userFunctions'
 
+var b = [];
+
 class InstructorProfile extends Component {
 
   constructor() {
@@ -28,10 +30,18 @@ onAssignmentClick() {
     console.log(res);
     // const assignments = res;
     // this.setState({ assignmentList: assignments})
-     this.setState({
-       assignmentList: res
-     });
-     let b = [];
+    this.setState({
+      assignmentList: res
+    });
+
+  //  console.log(res.length);
+    for(var i=1; i<=res.length; i++){
+     b.push(i);
+   //  console.log(b[i-1]);
+    }
+   
+    
+    
      //this.assignmentList = res;
     //  b = this.state.assignmentList.map(assignment => (
      
@@ -40,7 +50,7 @@ onAssignmentClick() {
     //   //   {assignment.question}
     //   // </li>
     // ));
-      console.log(this.assignmentList);
+   //   console.log(this.assignmentList);
       // this.assignmentList.map(assignment => (
 
       // ));
@@ -61,9 +71,16 @@ onAssignmentClick() {
               </div>
               <div>
               <ul>
-          {this.state.assignmentList.map(function(listValue){
-            return <li><a href ="/">{listValue.question}</a></li>;
-          })}
+          {/* {this.state.assignmentList.map(function(listValue, i){
+          return <li><a href ="/">{listValue.question}{i+1}</a></li>;
+          })}  */}
+           {/* {this.state.assignmentList.map(function(listValue, i){
+          return <li><a href ="/">Assignment {i+1}</a></li>;
+          })}          */}
+            {this.state.assignmentList.map(function(listValue, i){
+          return <li><a href ={"#/getAssignments/" + listValue._id}>Assignment {i+1}</a></li>;
+          })}         
+          
         </ul>
 
                   </div>

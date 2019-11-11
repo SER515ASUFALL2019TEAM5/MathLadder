@@ -64,6 +64,7 @@ import Landing from './components/landing'
 import Login from './components/Login'
 import Register from './components/register'
 import InstructorProfile from './components/InstructorProfile';
+import question from './components/question';
 
 class App extends Component {
   render () {
@@ -76,6 +77,7 @@ class App extends Component {
               <Route exact path = "/add" component = {Register}/>
               <Route exact path = "/login" component = {Login}/>
               <Route exact path = "/Instructorprofile" component = {InstructorProfile}/>
+              <Route exact path = "/getAssignments/:_id" component = {question}/>
           </div>
         </div>
       </Router>  
