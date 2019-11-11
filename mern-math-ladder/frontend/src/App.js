@@ -75,7 +75,7 @@ class App extends Component {
           <div className = "container">
               <Route exact path = "/add" component = {Register}/>
               <Route exact path = "/login" component = {Login}/>
-              <Route exact path = "/profile" component = {InstructorProfile}/>
+              <Route exact path = "/Instructorprofile" component = {InstructorProfile}/>
           </div>
         </div>
       </Router>  
