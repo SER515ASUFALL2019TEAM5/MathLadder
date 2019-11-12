@@ -46,3 +46,14 @@ export const assignmentCreatedByUser = assignment => {
         console.log(err);
     })
 }
+
+export const getAssignment = (parameter) => {
+    return axios
+    .get('http://localhost:5000/assignment/getAssignments/' + parameter)
+    .then(response => {
+            return response.data
+    })
+    .catch(err => {
+        console.log(err);
+    })
+}
