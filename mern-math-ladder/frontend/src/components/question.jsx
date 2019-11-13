@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {getAssignment} from './userFunctions';
+var choicesToShow = [];
 
 class question extends Component {
 
@@ -7,29 +8,47 @@ class question extends Component {
         super();
         this.state = {
           assignment: [],
-          assignmentList: []
+          assignmentList: [],
+          options: [],
+          optionsToDisplay: []
         }
-        console.log(window.location.href);
         var url = window.location.href.split('/');
         var lastSegment = url.pop();
-        console.log(lastSegment);
         getAssignment(lastSegment)
         .then(res => {
             this.setState({
-                assignment:res
+                assignment:res,
+                options: res? res.options : []    
             })
         })
+        this.listOptions.bind(this);
+      }
+
+      listOptions() 
+      {
+            var choices = this.state.options;
+            choicesToShow = [];
+            for(var key in choices) {
+                choicesToShow.push(choices[key].option);
+            }
       }
 
     render(){
-        console.log(this.state.assignment.options);
         return (
             <div className="container">
                Question :  {this.state.assignment.question} ?
-               <ul>
-                  
-               </ul>
+                <ul>
+                {this.listOptions()}  
+                </ul>
+               {choicesToShow.map(movie => (
+            <div className="card">
+              {movie}
             </div>
+          ))}
+               
+               
+            </div>
+            
         ) 
     }
 }
