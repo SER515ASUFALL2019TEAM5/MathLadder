@@ -21,6 +21,8 @@ class InstructorProfile extends Component {
     history.push(`/getAssignments/${id}`);
   }
 
+  
+
   createAssignment() {
 
     const assignment = {
@@ -57,15 +59,24 @@ onAssignmentClick() {
     }
   });
 }
+
+routeChange() {
+  const { history } = this.props;
+  history.push('/AddQuestion');
+}
+
     
     render(){
         return (
             
             <div className="container">
               <div className="buttons_center">
-                <button onClick = {this.createAssignment.bind(this)} >
+                
+                <button onClick= {this.routeChange.bind(this)}>
                   Create Assignments
                 </button>
+               
+                
                 <button  onClick = {this.onAssignmentClick.bind(this)}>
                   My Assignments
                 </button>

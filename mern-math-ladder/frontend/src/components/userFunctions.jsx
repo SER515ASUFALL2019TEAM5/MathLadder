@@ -1,4 +1,5 @@
 import axios from 'axios'
+import question from './question'
 
 export const register = newUser => {  //this newUser came from form of register
     return axios
@@ -62,13 +63,19 @@ export const addAssignment = assignment => {
     const token = localStorage.token;
     var config = {
         headers:  {"Authorization" : `Bearer ${token}`}
+       
     };
+    console.log(assignment);
     return axios
     .post('http://localhost:5000/assignment/addAssignment', 
-        assignment,
-        config
+    {    headers:  {"Authorization" : `Bearer ${token}`},
+        question: assignment.question,
+        options: assignment.options
+    }
     )
     .then(response => {
+            console.log("After backened call");
+            console.log(response);
             return response.data
     })
     .catch(err => {
