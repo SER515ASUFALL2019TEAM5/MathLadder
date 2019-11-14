@@ -9,7 +9,6 @@ router.use(cors())
 
 
 router.route('/addAssignment').post(auth, async (req, res) => {
-    console.log("You have added assignment");
     const {question, options } = req.body;
     const id = req.decoded;
     const user =  await User.findById(id);
@@ -30,7 +29,6 @@ router.route('/addAssignment').post(auth, async (req, res) => {
     })
 
     user.questions.push(assignmentdata._id);
-    console.log(user)
     await user.save();
 })
 

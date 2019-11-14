@@ -3,14 +3,13 @@ import {addAssignment} from './userFunctions'
 
 class AddQuestion extends Component {
     constructor(){
-        console.log("aa");
         super()
         this.state = {
-            question: '',
-            option1: '',
-            option2: '',
-            option3: '',
-            option4: ''
+            question: "",
+            option1: "",
+            option2: "",
+            option3: "",
+            option4: ""
         }; 
 
         this.onChange = this.onChange.bind(this);
