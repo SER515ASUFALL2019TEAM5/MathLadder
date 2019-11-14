@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {getAssignment} from './userFunctions';
 var choicesToShow = [];
+var answerBy = [];
 
 class question extends Component {
 
@@ -28,8 +29,10 @@ class question extends Component {
       {
             var choices = this.state.options;
             choicesToShow = [];
+            answerBy = [];
             for(var key in choices) {
                 choicesToShow.push(choices[key].option);
+                answerBy.push(choices[key].answeredBy);
             }
       }
 
@@ -41,12 +44,10 @@ class question extends Component {
                 {this.listOptions()}  
                 </ul>
                {choicesToShow.map(movie => (
-            <div className="card">
-              {movie}
-            </div>
+              <div className="card">
+                {movie}
+              </div>
           ))}
-               
-               
             </div>
             
         ) 

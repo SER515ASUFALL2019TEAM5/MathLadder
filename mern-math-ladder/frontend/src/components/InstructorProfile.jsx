@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {assignmentCreatedByUser} from './userFunctions'
+import {addAssignment} from './userFunctions'
 
 var b = [];
 
@@ -9,11 +10,10 @@ class InstructorProfile extends Component {
     super();
     this.state = {
       assignment: [],
-      assignmentList: []
+      assignmentList: [],
+      question: "8 + 1",
+      options: ["9","2","1","8"]
     }
-   // this.assignmentList = [];
-    //assignment = {}
-    //this.onAssignmentClick = this.onAssignmentClick.bind(this);
   }
   
   handleSelect(id) {
@@ -21,39 +21,40 @@ class InstructorProfile extends Component {
     history.push(`/getAssignments/${id}`);
   }
 
+  createAssignment() {
+
+    const assignment = {
+      question : this.state.question,
+      options : this.state.options
+    }
+
+    addAssignment(assignment)
+    .then(res => {
+      if(res)
+      {
+        alert(res.status);
+      }else{
+        alert("Some Error occured while creating assignment");
+      }
+     
+      this.setState({
+        assignment: res
+      });
+    });
+  }
 
   
 onAssignmentClick() {
   assignmentCreatedByUser()
   .then(res => assignmentCreatedByUser())
   .then(res => {
-    console.log(res);
-    // const assignments = res;
-    // this.setState({ assignmentList: assignments})
     this.setState({
       assignmentList: res
     });
 
-  //  console.log(res.length);
     for(var i=1; i<=res.length; i++){
      b.push(i);
-   //  console.log(b[i-1]);
     }
-   
-    
-    
-     //this.assignmentList = res;
-    //  b = this.state.assignmentList.map(assignment => (
-     
-    //   r
-    //   // <li onClick={() => this.handleSelect(assignment._id)} key={assignment._id}>
-    //   //   {assignment.question}
-    //   // </li>
-    // ));
-   //   console.log(this.assignmentList);
-      // this.assignmentList.map(assignment => (
-
-      // ));
   });
 }
     
@@ -62,7 +63,7 @@ onAssignmentClick() {
             
             <div className="container">
               <div className="buttons_center">
-                <button className="button" >
+                <button onClick = {this.createAssignment.bind(this)} >
                   Create Assignments
                 </button>
                 <button  onClick = {this.onAssignmentClick.bind(this)}>
@@ -70,29 +71,12 @@ onAssignmentClick() {
                 </button>
               </div>
               <div>
-              <ul>
-          {/* {this.state.assignmentList.map(function(listValue, i){
-          return <li><a href ="/">{listValue.question}{i+1}</a></li>;
-          })}  */}
-           {/* {this.state.assignmentList.map(function(listValue, i){
-          return <li><a href ="/">Assignment {i+1}</a></li>;
-          })}          */}
-            {this.state.assignmentList.map(function(listValue, i){
-          return <li><a href ={"#/getAssignments/" + listValue._id}>Assignment {i+1}</a></li>;
-          })}         
-          
-        </ul>
-
-                  </div>
-              
-              {/* <div className="App"> */}
-                {/* {Object.keys(this.state.assignmentList).map((key) => (
-                  <div className="container">
-                    <span className="left">{key}</span>
-                    <span className="right">{this.state.assignmentList[key].question} displayType={'text'} decimalPrecision={2} thousandSeparator={true} prefix={'$'} </span>
-                  </div>
-                ))}
-              </div> */}
+                <ul>
+                  {this.state.assignmentList && this.state.assignmentList.map(function(listValue, i){
+                  return <li><a href ={"#/getAssignments/" + listValue._id}>Assignment {i+1}</a></li>;
+                  })}         
+                </ul>
+              </div>
             </div>
         ); 
     }

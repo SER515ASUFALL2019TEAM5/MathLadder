@@ -57,3 +57,21 @@ export const getAssignment = (parameter) => {
         console.log(err);
     })
 }
+
+export const addAssignment = assignment => {
+    const token = localStorage.token;
+    var config = {
+        headers:  {"Authorization" : `Bearer ${token}`}
+    };
+    return axios
+    .post('http://localhost:5000/assignment/addAssignment', 
+        assignment,
+        config
+    )
+    .then(response => {
+            return response.data
+    })
+    .catch(err => {
+        console.log(err);
+    })
+}
