@@ -86,6 +86,12 @@ class answerQuestion extends Component {
           });
     }
 
+
+    routeChange() {
+      const { history } = this.props;
+      history.push('/AppDragDropDemo');
+    }
+    
     render() {
         //console.log(this.state.options)
         return (
@@ -111,7 +117,7 @@ class answerQuestion extends Component {
                   <div className="form-group">
                     <label htmlFor="option2">Option 2 </label>
                     <input
-                      type="option2"
+                      type="checkbox"
                       className="form-control"
                       name="option2"
                       placeholder="Option"
@@ -122,7 +128,7 @@ class answerQuestion extends Component {
                   <div className="form-group">
                     <label htmlFor="option3">Option 3 </label>
                     <input
-                      type="option3"
+                      type="checkbox"
                       className="form-control"
                       name="option3"
                       placeholder="Option"
@@ -133,7 +139,7 @@ class answerQuestion extends Component {
                   <div className="form-group">
                     <label htmlFor="option1">Option 4 </label>
                     <input
-                      type="option4"
+                      type="checkbox"
                       className="form-control"
                       name="option4"
                       placeholder="Option"
@@ -148,6 +154,9 @@ class answerQuestion extends Component {
                    Submit Answer
                   </button>
                 </form>
+                <button onClick= {this.routeChange.bind(this)}>
+                  Solve Assignment
+                </button>
               </div>
             </div>
           </div>

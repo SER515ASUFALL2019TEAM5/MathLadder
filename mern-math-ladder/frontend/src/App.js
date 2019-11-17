@@ -68,6 +68,7 @@ import question from './components/question';
 import AddQuestion from './components/AddQuestion'
 import answerQuestion from './components/answerQuestion'
 import StudentProfile from './components/StudentProfile';
+import AppDragDropDemo from './components/AppDragDropDemo'
 
 class App extends Component {
   render () {
@@ -83,7 +84,9 @@ class App extends Component {
               <Route exact path = "/Studentprofile" component = {StudentProfile}/>
               <Route exact path = "/getAssignments/:_id" component = {question}/>
               <Route exact path = "/AddQuestion" component = {AddQuestion}/>
+              <Route exact path = "/Question" component = {AddQuestion}/>
               <Route exact path = "/getAssignmentForStudent/:_id" component = {answerQuestion}/>
+              <Route exact path = "/AppDragDropDemo" component = {AppDragDropDemo}/>
           </div>
         </div>
       </Router>  
