@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {login} from './userFunctions'
+//import jwt from 'jsonwebtoken'
+var jwtDecode = require('jwt-decode');
 
 class Login extends Component {
     constructor(){
@@ -32,7 +34,17 @@ class Login extends Component {
 
         login(user).then(res => {
             if(res){
-                this.props.history.push('/Studentprofile');
+                var userDetails = jwtDecode(res);
+                console.log(userDetails.educator);
+                console.log(userDetails.student);
+                if(userDetails.student)
+                {
+                  this.props.history.push('/Studentprofile');
+                }
+                else 
+                {
+                  this.props.history.push('/Instructorprofile');
+                }
             }
         })  
     }
