@@ -84,7 +84,7 @@ export const solveAssignmentCreatedByUser = (assignment) => {
         headers:  {"Authorization" : `Bearer ${token}`}
     };
     return axios
-    .post('http://localhost:5000/assignment//answerAssignment/' + assignment.parameter, 
+    .post('http://localhost:5000/assignment/answerAssignment/' + assignment.parameter, 
         {
             question: assignment.question,
             options: assignment.options,
@@ -92,6 +92,17 @@ export const solveAssignmentCreatedByUser = (assignment) => {
         },
         config
     )
+    .then(response => {
+            alert( response.status)
+    })
+    .catch(err => {
+        console.log(err);
+    })
+}
+
+export const getallAssignments = (assignment) => {
+    return axios
+    .get('http://localhost:5000/assignment/viewAssignment')
     .then(response => {
             return response.data
     })
