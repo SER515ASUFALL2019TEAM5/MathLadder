@@ -76,3 +76,26 @@ export const addAssignment = assignment => {
         console.log(err);
     })
 }
+
+
+export const solveAssignmentCreatedByUser = (assignment) => {
+    const token = localStorage.token;
+    var config = {
+        headers:  {"Authorization" : `Bearer ${token}`}
+    };
+    return axios
+    .post('http://localhost:5000/assignment//answerAssignment/' + assignment.parameter, 
+        {
+            question: assignment.question,
+            options: assignment.options,
+            answer: assignment.answer
+        },
+        config
+    )
+    .then(response => {
+            return response.data
+    })
+    .catch(err => {
+        console.log(err);
+    })
+}

@@ -66,6 +66,8 @@ import Register from './components/register'
 import InstructorProfile from './components/InstructorProfile';
 import question from './components/question';
 import AddQuestion from './components/AddQuestion'
+import answerQuestion from './components/answerQuestion'
+import StudentProfile from './components/StudentProfile';
 
 class App extends Component {
   render () {
@@ -78,8 +80,10 @@ class App extends Component {
               <Route exact path = "/add" component = {Register}/>
               <Route exact path = "/login" component = {Login}/>
               <Route exact path = "/Instructorprofile" component = {InstructorProfile}/>
+              <Route exact path = "/Studentprofile" component = {StudentProfile}/>
               <Route exact path = "/getAssignments/:_id" component = {question}/>
               <Route exact path = "/AddQuestion" component = {AddQuestion}/>
+              <Route exact path = "/getAssignmentForStudent/:_id" component = {answerQuestion}/>
           </div>
         </div>
       </Router>  
