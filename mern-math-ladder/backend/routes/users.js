@@ -70,7 +70,7 @@ router.route('/login').post((req, res) => {
         student: user.student
       }
       const token = jwt.sign(payload, process.env.SECRET_KEY,{
-        expiresIn: 1440
+        expiresIn: 14440
       })
       res.send(token)
       res.json({status : "User signed in Successfully"})
