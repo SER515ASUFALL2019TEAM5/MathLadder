@@ -31,7 +31,7 @@ class question extends Component {
             choicesToShow = [];
             answerBy = [];
             for(var key in choices) {
-                choicesToShow.push(choices[key].option);
+              choicesToShow.push(choices[key].option  + " ( Answered By :  " + choices[key].answeredBy + " )");
                 answerBy.push(choices[key].answeredBy);
             }
       }

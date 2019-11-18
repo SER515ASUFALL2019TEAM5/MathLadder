@@ -91,7 +91,16 @@ class answerQuestion extends Component {
       const { history } = this.props;
       history.push('/AppDragDropDemo');
     }
-    
+    routeChange1() {
+      const { history } = this.props;
+      history.push('/AppDragDropDemo');
+    }
+
+    routeChange2() {
+      const { history } = this.props;
+      history.push('/AppDragDemoGrade3');
+    }
+
     render() {
         //console.log(this.state.options)
         return (
@@ -115,7 +124,7 @@ class answerQuestion extends Component {
                     />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="option2">Option 2 </label>
+                    <label htmlFor="option2">{this.state.option2} </label>
                     <input
                       type="checkbox"
                       className="form-control"
@@ -126,7 +135,7 @@ class answerQuestion extends Component {
                     />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="option3">Option 3 </label>
+                    <label htmlFor="option3">{this.state.option3}</label>
                     <input
                       type="checkbox"
                       className="form-control"
@@ -137,7 +146,7 @@ class answerQuestion extends Component {
                     />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="option1">Option 4 </label>
+                    <label htmlFor="option1">{this.state.option4} </label>
                     <input
                       type="checkbox"
                       className="form-control"
@@ -154,9 +163,13 @@ class answerQuestion extends Component {
                    Submit Answer
                   </button>
                 </form>
-                <button onClick= {this.routeChange.bind(this)}>
-                  Solve Assignment
-                </button>
+                <button className="button" onClick= {this.routeChange2.bind(this)}>
+                                       Test it yourself Grade 1
+                    </button>
+                    <button className="button" onClick= {this.routeChange1.bind(this)}>
+                                        Test it yourself Grade 3
+                    </button>
+                
               </div>
             </div>
           </div>
