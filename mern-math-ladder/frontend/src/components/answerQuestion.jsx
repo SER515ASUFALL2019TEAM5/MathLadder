@@ -116,7 +116,7 @@ class answerQuestion extends Component {
         <label htmlFor="option1"> {this.state.option1} </label>
                     <input
                       type="checkbox"
-                      className="form-control"
+                      className="check-box"
                       name="option1"
                       placeholder="Option"
                       value={this.state.option1}
@@ -127,7 +127,7 @@ class answerQuestion extends Component {
                     <label htmlFor="option2">{this.state.option2} </label>
                     <input
                       type="checkbox"
-                      className="form-control"
+                      className="check-box"
                       name="option2"
                       placeholder="Option"
                       value={this.state.option2}
@@ -138,7 +138,7 @@ class answerQuestion extends Component {
                     <label htmlFor="option3">{this.state.option3}</label>
                     <input
                       type="checkbox"
-                      className="form-control"
+                      className="check-box"
                       name="option3"
                       placeholder="Option"
                       value={this.state.option3}
@@ -149,7 +149,7 @@ class answerQuestion extends Component {
                     <label htmlFor="option1">{this.state.option4} </label>
                     <input
                       type="checkbox"
-                      className="form-control"
+                      className="check-box"
                       name="option4"
                       placeholder="Option"
                       value={this.state.option4}
