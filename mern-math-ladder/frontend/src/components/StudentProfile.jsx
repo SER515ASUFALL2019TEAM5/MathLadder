@@ -78,7 +78,7 @@ routeChange() {
                 </button>
               </div>
               <div>
-                <ul>
+                <ul className="unorderlist"> 
                   {this.state.assignmentList && this.state.assignmentList.map(function(listValue, i){
                   return <li><a href ={"#/getAssignmentForStudent/" + listValue._id}>Assignment {i+1}</a>
                   </li>;
