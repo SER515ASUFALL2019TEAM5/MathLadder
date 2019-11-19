@@ -1,0 +1,84 @@
+/*
+Author : Chandan Yadav
+*/
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.App {
+  text-align: center;
+  width: 95%;
+  margin: 15px auto;
+}
+
+.container-drag {
+  text-align: center;
+}
+
+.wip {
+  position: absolute;
+  width: 500px;
+  height: 100vh;
+  left: 0;
+  top: 10;
+  background-color: #EEEEEE;
+  border-collapse: 1px dotted;
+  font-size: large;
+  font-stretch: expanded; 
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.header {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(255, 255, 255);
+  width:100%;
+}
+
+.task-header {
+  display: inline-block;
+  background-color: skyblue;
+  width:100%;
+}
+
+.droppable {
+  position: absolute;
+  width: 850px;
+  height: 100vh;
+  right: 0;
+  top: 10;
+  background-color: white;
+  border-left: 1px dotted;
+  
+}
+
+.draggable {
+  width: 200px;
+  height: 50px;
+  background-color: yellow;
+  margin: 10px auto;
+  line-height: 3em;
+  font-size: large;
+  font-display: white;
+  
+   
+}

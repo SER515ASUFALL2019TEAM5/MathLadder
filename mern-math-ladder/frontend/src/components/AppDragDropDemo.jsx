@@ -113,7 +113,7 @@ export default class AppDragDropDemo extends Component {
              errorMessage = <h1>{this.state.message}</h1>
             }
 
-            if(flag == false)
+            if(flag ==false)
             {
             sum= <h1>{"invalid expression"}</h1>
             }
