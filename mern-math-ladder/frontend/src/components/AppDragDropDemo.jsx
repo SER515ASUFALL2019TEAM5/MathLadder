@@ -5,7 +5,28 @@ import {
 import './AppDragDemo.css';
 let prop1 = "";
 let flag = false;
+let clear = false;
 let sum = null;
+const tasks = [
+    {name:"1" ,category:"wip", bgcolor: "skyblue"},
+    {name:"2", category:"wip", bgcolor:"skyblue"},
+    {name:"3", category:"wip", bgcolor:"skyblue"},
+    {name:"4", category:"wip", bgcolor:"skyblue"},
+    {name:"5", category:"wip", bgcolor:"skyblue"},
+    {name:"6", category:"wip", bgcolor:"skyblue"},
+    {name:"7", category:"wip", bgcolor:"skyblue"},
+    {name:"8", category:"wip", bgcolor:"skyblue"},
+    {name:"9", category:"wip", bgcolor:"skyblue"},
+    {name:"0", category:"wip", bgcolor:"skyblue"},
+    {name:"+", category:"wip", bgcolor:"skyblue"},
+    {name:"-", category:"wip", bgcolor:"skyblue"},
+    {name:"*", category:"wip", bgcolor:"skyblue"},
+    {name:"/", category:"wip", bgcolor:"skyblue"},
+    {name:"%", category:"wip", bgcolor:"skyblue"},
+    {name:"(", category:"wip", bgcolor:"skyblue"},
+    {name:")", category:"wip", bgcolor:"skyblue"}
+]
+
 export default class AppDragDropDemo extends Component {
     state = {
         tasks: [
@@ -27,6 +48,8 @@ export default class AppDragDropDemo extends Component {
             {name:"(", category:"wip", bgcolor:"skyblue"},
             {name:")", category:"wip", bgcolor:"skyblue"}
           ],
+          workInProgress: [],
+          completedwork : [],
           finalRes : null,
           message: null
     }
@@ -37,7 +60,6 @@ export default class AppDragDropDemo extends Component {
 
     onDragStart = (ev, id) => {
         console.log('dragstart:',id);
-        
         ev.dataTransfer.setData("id", id);
     }
 
@@ -50,6 +72,7 @@ export default class AppDragDropDemo extends Component {
            flag = true;
            try{
            this.setState({ finalRes:  evaluate(prop1)});
+           console.log("finalres in display"+ this.state.finalRes);
            }
            catch(Exception)
            {
@@ -57,43 +80,59 @@ export default class AppDragDropDemo extends Component {
             this.setState({ message: "Invalid Expression from state" })
             sum= <h1>{"invalid expression"}</h1>
            }
+           console.log("Display Redult"+ this.state.finalRes)
         
        }
 
+       clearResult()
+       {
+        this.setState({completedwork: []});
+
+        this.setState({ finalRes:  null});
+        clear = true;
+        prop1 = "";
+           
+       }
        
 
     onDrop = (ev, cat) => {
+
        let id = ev.dataTransfer.getData("id");
-       
-       let tasks = this.state.tasks.filter((task) => {
-           if (task.name == id) {
-               task.category = cat;
-           }
+        var completedwork = this.state.completedwork;
+        this.state.completedwork.push(
+                id
+        );
+       this.setState({
+        ...this.state,
+        completedwork
+       })
 
-           return task;
-       });
-
-    
+       console.log("Completed work Status"+ this.state.completedwork)
        prop1+=" "+id
     
-       this.setState({
-           ...this.state,
-           tasks
-       });
-
-    
-
     }
 
     render() {
-        var tasks = {
-            wip: [],
-            complete: []
-        }
 
+        var comp = []
 
+        this.state.completedwork.forEach ((t) => {
+            comp.push(
+                <div key={t.name} 
+                    onDragStart = {(e) => this.onDragStart(e, t.name)}
+                    draggable
+                    className="draggable"
+                    style = {{backgroundColor: "skyblue"}}
+                >
+                    {t}
+                </div>
+            );
+        });
+        
+
+    
         this.state.tasks.forEach ((t) => {
-            tasks[t.category].push(
+            this.state.workInProgress.push(
                 <div key={t.name} 
                     onDragStart = {(e) => this.onDragStart(e, t.name)}
                     draggable
@@ -104,6 +143,7 @@ export default class AppDragDropDemo extends Component {
                 </div>
             );
         });
+        
         
         if(this.state.finalRes){
 
@@ -120,10 +160,14 @@ export default class AppDragDropDemo extends Component {
         }
         else
         {
-            if(flag == true)
-            sum= <h1>{"invalid expression"}</h1>
-        }
 
+            if(flag == true) 
+            sum= <h1>{"invalid expression"}</h1>
+            
+            if(clear == true)
+            sum= null
+        }
+        
         return (  
 
             <div className="container-drag">
@@ -132,7 +176,7 @@ export default class AppDragDropDemo extends Component {
                     onDragOver={(e)=>this.onDragOver(e)}
                     onDrop={(e)=>{this.onDrop(e, "wip")}}>
                     <span className="task-header">Operators</span>
-                    {tasks.wip}
+                    {this.state.workInProgress}
                 </div>
                 <div className="droppable" 
                     onDragOver={(e)=>this.onDragOver(e)}
@@ -141,8 +185,7 @@ export default class AppDragDropDemo extends Component {
                      <span className="task-header">Calculations</span>
                      <span className="button"><button onClick ={()=> this.displayresult() }>Result</button></span>
                      <span className="button"><button onClick ={()=> this.clearResult() }>Clear</button></span>
-                     {tasks.complete}
-                     
+                     {comp}
                      <text>{sum}</text>
                     {errorMessage}
                 </div>
