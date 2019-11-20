@@ -104,19 +104,23 @@ routeChange() {
                 <button className="Common_button" onClick= {this.routeChange.bind(this)}>Create Assignments</button>
                 
                 <button className="Common_button" onClick= {this.onAssignmentClick.bind(this)}>My Assignments</button>
+                
+                
           </div>
                 
-               
+          <div className= "divide"></div>     
                
                 
-               
+          <div>
                 <ul>
                   {this.state.assignmentList && this.state.assignmentList.map(function(listValue, i){
-                  return <li><a href ={"#/getAssignments/" + listValue._id}>Assignment {i+1}</a></li>;
+                  return <li><a href ={"#/getAssignments/" + listValue._id}>Assignment {i+1}</a><br></br></li>;
                   })}         
                 </ul>
+                </div>
               </div>
               </div>
+              
               
             
         ); 
