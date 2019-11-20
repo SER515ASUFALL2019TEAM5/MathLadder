@@ -50,7 +50,7 @@ class Register extends Component {
             <div className="row">
               <div className="col-md-6 mt-5 mx-auto">
                 <form validate onSubmit={this.onSubmit}>
-                  <h1 className="h3 mb-3 font-weight-normal">Please sign Up</h1>
+                  <h1 className="h3 mb-3 font-weight-normal">Please sign Up </h1>
                   <div className="form-group">
                   <label htmlFor="username">Enter your full name</label>
                     <input
@@ -88,24 +88,27 @@ class Register extends Component {
                     />
                   </div>
                   <div className="form-group">
-                    <label htmlFor="educator">I am a Educator</label>
+                  <label htmlFor="educator">
                     <input
                       type="checkbox"
-                      className="form-control"
+                      className="FormField__Checkbox"
                       name="educator"
                       value={this.state.educator}
                       onChange={this.onChange}
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="student">I am a Student</label>
+                    />*I am an Educator</label>
+                    </div>
+                    <div className="form-group">
+                    <label htmlFor="student">
+                    
+                    
                     <input
                       type="checkbox"
-                      className="form-control"
+                      className="FormField__Checkbox"
                       name="student"
                       value={this.state.student}
                       onChange={this.onChange}
-                    />
+                      
+                    /> *I am a Student </label>
                   </div>
                   <button type="submit" className="btn btn-lg btn-primary btn-block">
                       Register

@@ -13,24 +13,23 @@ class Landing extends Component {
       }
 
 
-
     render(){
         return (
-
-            
-
             <div className="container">
-                <div className="jumbotron mt-5">
-                    <div className="col-sm-8 mx-auto">
-                            Welcome To MathLadder :)
-                    </div>
-                </div>
-                <button className="button" onClick= {this.routeChange2.bind(this)}>
+                <h2>Hi Bud !! Welcome to KHILaaa Math Ladder</h2>
+                <table>
+                  <tr>
+                <button className="Common_button" onClick= {this.routeChange2.bind(this)}>
                                          Grade 1
                     </button>
-                    <button className="button" onClick= {this.routeChange1.bind(this)}>
+                    </tr>
+                    <div className = "divider"/>
+                    <tr>
+                    <button className="Common_button" onClick= {this.routeChange1.bind(this)}>
                                          Grade 3
                     </button>
+                    </tr>
+                    </table>
 
             </div>
         ) 

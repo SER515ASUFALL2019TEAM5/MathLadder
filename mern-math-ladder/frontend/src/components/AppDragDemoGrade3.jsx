@@ -9,7 +9,7 @@ let sum = null;
 export default class AppDragDropDemo extends Component {
     state = {
         tasks: [
-            {name:"1" ,category:"wip", bgcolor: "skyblue"},
+            {name:"1" ,category:"wip", bgcolor: "#00daff",},
             {name:"2", category:"wip", bgcolor:"skyblue"},
             {name:"3", category:"wip", bgcolor:"skyblue"},
             {name:"4", category:"wip", bgcolor:"skyblue"},
