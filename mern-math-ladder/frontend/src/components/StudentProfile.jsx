@@ -3,6 +3,7 @@ import {solveAssignmentCreatedByUser} from './userFunctions'
 import {addAssignment} from './userFunctions'
 import {assignmentCreatedByUser} from './userFunctions'
 import {getallAssignments} from './userFunctions'
+import { NavLink } from 'react-router-dom'
 
 //import {answerAssignment}from './userFunctions'
 var b = [];
@@ -69,8 +70,32 @@ routeChange() {
     
     render(){
         return (
+          <div className='App__Form'>
+          
+          <div className = 'text-center'><h1>Welcome to Math Ladder!! </h1></div>
+    <div className = 'Align_right'>
+      
+      <NavLink to='/landing' activeClassName='PageSwitcher__Item--Active' className='PageSwitcher__Item'>
+        Home
+      </NavLink>
+      <NavLink to='/Profile' activeClassName='PageSwitcher__Item--Active' className='PageSwitcher__Item'>
+        Profile
+      </NavLink>
+      <NavLink to='/StudentProfile' activeClassName='PageSwitcher__Item--Active' className='PageSwitcher__Item'>
+        Assignments
+      </NavLink>
+      
+      <NavLink
+        exact
+        to='/Login'
+        activeClassName='PageSwitcher__Item--Active'
+        className='PageSwitcher__Item'>
+        Logout
+      </NavLink>
+      </div>
+      
             
-            <div className="container">
+            
               <div className="buttons_center">
                 
                 <button  onClick = {this.onAssignmentClick.bind(this)}>
@@ -85,7 +110,8 @@ routeChange() {
                   })}         
                 </ul>
               </div>
-            </div>
+              </div>
+            
         ); 
     }
 

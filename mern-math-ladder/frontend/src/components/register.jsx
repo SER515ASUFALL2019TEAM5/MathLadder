@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {register} from './userFunctions'
-
+import { NavLink } from 'react-router-dom'
 class Register extends Component {
     constructor(){
         super()
@@ -46,12 +46,33 @@ class Register extends Component {
 
     render() {
         return (
-          <div className="container">
-            <div className="row">
+          <div className='App__Form'>
+          <div className = 'Align_right'>
+            
+          <NavLink to='/login' activeClassName='PageSwitcher__Item--Active' className='PageSwitcher__Item'>
+            Login
+          </NavLink>
+          
+          <NavLink
+            exact
+            to='/add'
+            activeClassName='PageSwitcher__Item--Active'
+            className='PageSwitcher__Item'>
+            Register
+          </NavLink>
+          </div>
+          <br></br>
+            <div className = 'text-center'><h1>Math Ladder </h1></div>
+ 
+       
+       
+              <div className="Relative_position">
               <div className="col-md-6 mt-5 mx-auto">
                 <form validate onSubmit={this.onSubmit}>
                   <h1 className="h3 mb-3 font-weight-normal">Please sign Up </h1>
                   <div className="form-group">
+                  <div className = "input_width">
+
                   <label htmlFor="username">Enter your full name</label>
                     <input
                       type="string"
@@ -63,7 +84,9 @@ class Register extends Component {
                       required = {true}
                     />
                    </div>
-                  <div className="form-group">
+                   </div>
+                   <div className="form-group">
+                   <div className = "input_width">
                     <label htmlFor="email">Email address</label>
                     <input
                       type="string"
@@ -75,7 +98,9 @@ class Register extends Component {
                       onChange={this.onChange}
                     />
                   </div>
+                  </div>
                   <div className="form-group">
+                  <div className = "input_width">
                     <label htmlFor="password">Password</label>
                     <input
                       type="string"
@@ -87,7 +112,9 @@ class Register extends Component {
                       required = {true}
                     />
                   </div>
+                  </div>
                   <div className="form-group">
+                  <div className = "input_width">
                   <label htmlFor="educator">
                     <input
                       type="checkbox"
@@ -97,7 +124,9 @@ class Register extends Component {
                       onChange={this.onChange}
                     />*I am an Educator</label>
                     </div>
+                    </div>
                     <div className="form-group">
+                    <div className = "input_width">
                     <label htmlFor="student">
                     
                     
@@ -110,13 +139,20 @@ class Register extends Component {
                       
                     /> *I am a Student </label>
                   </div>
+                  </div>
+                  <div className="form-group">
+                  <div className = "input_width">
                   <button type="submit" className="btn btn-lg btn-primary btn-block">
                       Register
                   </button>
+                  </div>
+                  </div>
                 </form>
               </div>
             </div>
-          </div>
+            </div>
+            
+          
         )
       }
 }
