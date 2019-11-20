@@ -93,14 +93,7 @@ class answerQuestion extends Component {
           }
           solveAssignmentCreatedByUser(assignment)
           .then(res => {
-            console.log(res);
-            if(res)
-            {
-              alert("Assignment answered suceessfully");
-            }else{
-              alert("You have already answered assignment");
-            }
-           
+
             this.setState({
               assignment: res
             });
