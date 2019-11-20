@@ -111,9 +111,9 @@ router.route('/answerAssignment/:id').post(auth , async(req, res) => {
       assignment.options = finalOptionChoosed;
         await assignment.save();
 
-        return res.status(202).json(assignment)
+        return res.json({assignment: assignment, statusText: "Assignment Answered scuccessfully"})
     } else{
-        return res.status(400).json('Answer already given')
+        return res.json({statusText: 'Answer already given'})
     } 
 
   }
