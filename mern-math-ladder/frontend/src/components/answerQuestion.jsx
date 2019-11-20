@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {solveAssignmentCreatedByUser} from './userFunctions'
 import {getAssignment} from './userFunctions'
+import { NavLink } from 'react-router-dom'
 var choices  = [];
 
 class answerQuestion extends Component {
@@ -104,7 +105,42 @@ class answerQuestion extends Component {
     render() {
         //console.log(this.state.options)
         return (
-          <div className="container">
+          <div className="App__Form">
+            
+    <div className = 'Align_right'>
+      
+      <NavLink to='/landing' activeClassName='PageSwitcher__Item--Active' className='PageSwitcher__Item'>
+        Home
+      </NavLink>
+      <NavLink to='/Profile' activeClassName='PageSwitcher__Item--Active' className='PageSwitcher__Item'>
+        Profile
+      </NavLink>
+      <NavLink to='/StudentProfile' activeClassName='PageSwitcher__Item--Active' className='PageSwitcher__Item'>
+        Assignments
+      </NavLink>
+      
+      <NavLink
+        exact
+        to='/Login'
+        activeClassName='PageSwitcher__Item--Active'
+        className='PageSwitcher__Item'>
+        Logout
+      </NavLink>
+      
+      </div>
+            <div className = 'Align_right'>
+            
+            <div>
+                  <br></br>
+                <button className="Common_button" onClick= {this.routeChange2.bind(this)} text-align = "center">Test it yourself for Grade1</button>
+                             
+                    <div className="divider"></div>
+                    
+                    <button className="Common_button" onClick= {this.routeChange1.bind(this)}>Test it yourself for Grade3</button>
+                                      
+                    </div>
+                    </div>
+                
             <div className="row">
               <div className="col-md-6 mt-5 mx-auto">
                 <form validate onSubmit={this.onSubmit}>
@@ -163,12 +199,6 @@ class answerQuestion extends Component {
                    Submit Answer
                   </button>
                 </form>
-                <button className="button" onClick= {this.routeChange2.bind(this)}>
-                                       Test it yourself Grade 1
-                    </button>
-                    <button className="button" onClick= {this.routeChange1.bind(this)}>
-                                        Test it yourself Grade 3
-                    </button>
                 
               </div>
             </div>

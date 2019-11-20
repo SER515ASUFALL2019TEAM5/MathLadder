@@ -94,23 +94,33 @@ routeChange() {
       </NavLink>
       </div>
       
-            
-            
-              <div className="buttons_center">
+      <h1>                              </h1> 
+      <h1>                              </h1>   
+      <div className = 'Align_right'>
+              <div>
+
                 
-                <button  onClick = {this.onAssignmentClick.bind(this)}>
+                <button  className="Common_button" onClick = {this.onAssignmentClick.bind(this)}>
                   My Assignments
                 </button>
+               
               </div>
+              </div>
+              <h1>                              </h1>
+             
+              <div className = 'Align_right'>
+              
               <div>
                 <ul className="unorderlist"> 
                   {this.state.assignmentList && this.state.assignmentList.map(function(listValue, i){
-                  return <li><a href ={"#/getAssignmentForStudent/" + listValue._id}>Assignment {i+1}</a>
+                  return <li ><a href ={"#/getAssignmentForStudent/" + listValue._id}>Assignment {i+1}</a><br></br>
                   </li>;
                   })}         
                 </ul>
               </div>
               </div>
+              </div>
+              
             
         ); 
     }

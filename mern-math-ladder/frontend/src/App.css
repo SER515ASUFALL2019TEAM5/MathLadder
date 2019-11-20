@@ -162,6 +162,7 @@
   font-size: 15px;
   font-weight: 1000;
   
+  
 }
 .common_menu{
 
@@ -235,4 +236,21 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
+}
+.list {
+  background-color:#005aff;
+  list-style-type: none;
+  
+    background-color:#005aff;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+   
+    font-size: 15px;
+    font-weight: 1000;
+    align-self: auto;
+    
+  
+  
 }

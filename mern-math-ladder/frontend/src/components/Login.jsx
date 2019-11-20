@@ -41,7 +41,7 @@ class Login extends Component {
                 console.log(userDetails.student);
                 if(userDetails.student)
                 {
-                  this.props.history.push('/Studentprofile');
+                  this.props.history.push('/landing');
                 }
                 else 
                 {
