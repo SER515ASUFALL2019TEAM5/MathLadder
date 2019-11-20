@@ -102,7 +102,7 @@ class Login extends Component {
           
         
         <div className='App__Form'>
-        <div className = 'Align_right'>
+        <div className = 'Align_right1'>
           
         <NavLink to='/login' activeClassName='PageSwitcher__Item--Active' className='PageSwitcher__Item'>
           Login

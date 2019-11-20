@@ -26,6 +26,7 @@ class Profile extends Component {
           Logout
         </NavLink>
         </div>
+        <img src="avatar.png" alt="Avatar" class="avatar"></img>
         </div>
         ) 
     }
