@@ -103,7 +103,7 @@ class Register extends Component {
                   <div className = "input_width">
                     <label htmlFor="password">Password</label>
                     <input
-                      type="string"
+                      type="password"
                       className="form-control"
                       name="password"
                       placeholder="Password"

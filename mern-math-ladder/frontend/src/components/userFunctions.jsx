@@ -93,7 +93,15 @@ export const solveAssignmentCreatedByUser = (assignment) => {
         config
     )
     .then(response => {
-            alert( response.status)
+            // alert( response.status)
+            if(response.data.statusText== "Assignment Answered scuccessfully")
+            {
+                    alert("Assignment Answered scuccessfully")
+            }
+
+            else{
+                    alert("Answer already given")
+            }
     })
     .catch(err => {
         console.log(err);
