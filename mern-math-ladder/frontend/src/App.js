@@ -16,6 +16,7 @@ import AppDragDropDemo from './components/AppDragDropDemo'
 import AppDragDemoGrade3 from './components/AppDragDemoGrade3'
 import Profile from './components/Profile'
 import StudenView from './components/StudentView'
+import ProfileIns from './components/ProfileIns'
 
 class App extends Component {
   render () {
@@ -35,6 +36,7 @@ class App extends Component {
         <Route exact path='/AppDragDemoGrade3' component={AppDragDemoGrade3} />
         <Route exact path='/Profile' component={Profile} />
         <Route exact path='/StudentView' component={StudenView} />
+        <Route exact path='/ProfileIns' component={ProfileIns} />
       </Router>
     )
   }

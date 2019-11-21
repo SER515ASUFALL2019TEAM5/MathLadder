@@ -78,7 +78,7 @@ routeChange() {
       <NavLink to='/Instructorprofile' activeClassName='PageSwitcher__Item--Active' className='PageSwitcher__Item'>
         Home
       </NavLink>
-      <NavLink to='/Profile' activeClassName='PageSwitcher__Item--Active' className='PageSwitcher__Item'>
+      <NavLink to='/ProfileIns' activeClassName='PageSwitcher__Item--Active' className='PageSwitcher__Item'>
         Profile
       </NavLink>
       <NavLink to='/StudentView' activeClassName='PageSwitcher__Item--Active' className='PageSwitcher__Item'>
@@ -110,13 +110,14 @@ routeChange() {
                 
           <div className= "divide"></div>     
                
-                
+          <div className='App__Form'>      
           <div>
                 <ul>
                   {this.state.assignmentList && this.state.assignmentList.map(function(listValue, i){
                   return <li><a href ={"#/getAssignments/" + listValue._id}>Assignment {i+1}</a><br></br></li>;
                   })}         
                 </ul>
+                </div>
                 </div>
               </div>
               </div>
