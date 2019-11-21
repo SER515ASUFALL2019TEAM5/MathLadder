@@ -185,6 +185,7 @@ class answerQuestion extends Component {
                       onChange={this.onChange}
                       checked= {this.state.option1.isChecked}
                     />
+                    &nbsp;&nbsp;
                     <label htmlFor="option1"> {this.state.option1} </label>
                   </div>
                   <div className="form-group">
@@ -201,6 +202,7 @@ class answerQuestion extends Component {
 
                     
                     />
+                    &nbsp;&nbsp;
                     <label htmlFor="option2">{this.state.option2} </label>
                   </div>
                   <div className="form-group">
@@ -216,6 +218,7 @@ class answerQuestion extends Component {
                       checked= {this.state.option3.isChecked}
 
                     />
+                    &nbsp;&nbsp;
                     <label htmlFor="option3">{this.state.option3}</label>
                   </div>
                   <div className="form-group">
@@ -230,7 +233,7 @@ class answerQuestion extends Component {
                     onChange={this.onChange}
                       checked= {this.state.option4.isChecked}
                     />
-                    
+                    &nbsp;&nbsp;
                     <label htmlFor="option1">{this.state.option4} </label>
                   </div>
                   <button

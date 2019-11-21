@@ -69,7 +69,7 @@ class Register extends Component {
               <div className="Relative_position">
               <div className="col-md-6 mt-5 mx-auto">
                 <form validate onSubmit={this.onSubmit}>
-                  <h1 className="h3 mb-3 font-weight-normal">Please sign Up </h1>
+                  <h1 className="h3 mb-3 font-weight-normal">Please Register </h1>
                   <div className="form-group">
                   <div className = "input_width">
 
