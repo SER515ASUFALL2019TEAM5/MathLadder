@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom'
 
-class Landing extends Component {
+class StudentView extends Component {
 
     routeChange1() {
         const { history } = this.props;
@@ -20,8 +20,10 @@ class Landing extends Component {
           
                 <div className = 'text-center'><h1>Welcome to Math Ladder!! </h1></div>
           <div className = 'Align_right'>
-            
-            <NavLink to='/landing' activeClassName='PageSwitcher__Item--Active' className='PageSwitcher__Item'>
+          <NavLink to='/InstructorProfile' activeClassName='PageSwitcher__Item--Active' className='PageSwitcher__Item'>
+              Back to Instructor View
+            </NavLink>
+            <NavLink to='/StudentView' activeClassName='PageSwitcher__Item--Active' className='PageSwitcher__Item'>
               Home
             </NavLink>
             <NavLink to='/Profile' activeClassName='PageSwitcher__Item--Active' className='PageSwitcher__Item'>
@@ -107,4 +109,4 @@ class Landing extends Component {
     }
 }
 
-export default Landing
+export default StudentView

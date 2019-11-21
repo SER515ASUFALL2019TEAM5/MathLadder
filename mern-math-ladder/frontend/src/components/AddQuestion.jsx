@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {addAssignment} from './userFunctions'
+import { NavLink } from 'react-router-dom'
 
 class AddQuestion extends Component {
     constructor(){
@@ -50,7 +51,37 @@ class AddQuestion extends Component {
 
     render() {
         return (
-          <div className="container">
+          <div className='App__Form'>
+          
+          <div className = 'text-center'><h1>Welcome to Math Ladder!! </h1></div>
+    <div className = 'Align_right'>
+      
+      <NavLink to='/Instructorprofile' activeClassName='PageSwitcher__Item--Active' className='PageSwitcher__Item'>
+        Home
+      </NavLink>
+      <NavLink to='/Instructorprofile' activeClassName='PageSwitcher__Item--Active' className='PageSwitcher__Item'>
+        My Assignments
+      </NavLink>
+      <NavLink to='/Profile' activeClassName='PageSwitcher__Item--Active' className='PageSwitcher__Item'>
+        Profile
+      </NavLink>
+      <NavLink to='/StudentView' activeClassName='PageSwitcher__Item--Active' className='PageSwitcher__Item'>
+        Student View
+      </NavLink>
+      
+      
+      <NavLink
+        exact
+        to='/Login'
+        activeClassName='PageSwitcher__Item--Active'
+        className='PageSwitcher__Item'>
+        Logout
+      </NavLink>
+      </div>
+      
+      <h1>                              </h1> 
+      <h1>                              </h1>
+      <h1>                              </h1>
             <div className="row">
               <div className="col-md-6 mt-5 mx-auto">
                 <form validate onSubmit={this.onSubmit}>

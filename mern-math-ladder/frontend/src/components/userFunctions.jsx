@@ -93,22 +93,8 @@ export const solveAssignmentCreatedByUser = (assignment) => {
         config
     )
     .then(response => {
-            console.log(response)
-            //var myObject = JSON.parse(response)
-            console.log("myobject "+ response.data.statusText)
-            console.log("User Functions"+ response.status);
-            console.log("User statusText"+ response.statusText);
-            if(response.data.statusText== "Assignment Answered scuccessfully")
-            {
-                    alert("Assignment Answered scuccessfully")
-            }
-
-            else{
-                    alert("Answer already given")
-            }
+            alert( response.status)
     })
-
-
     .catch(err => {
         console.log(err);
     })

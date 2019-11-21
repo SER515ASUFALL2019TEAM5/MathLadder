@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom'
-class Profile extends Component {
+class ProfileIns extends Component {
     render(){
         return (
             <div className='App__Form'>
@@ -8,13 +8,13 @@ class Profile extends Component {
             <div className = 'text-center'><h1>Welcome to Math Ladder!! </h1></div>
       <div className = 'Align_right'>
         
-        <NavLink to='/landing' activeClassName='PageSwitcher__Item--Active' className='PageSwitcher__Item'>
+        <NavLink to='/InstructorProfile' activeClassName='PageSwitcher__Item--Active' className='PageSwitcher__Item'>
           Home
         </NavLink>
-        <NavLink to='/Profile' activeClassName='PageSwitcher__Item--Active' className='PageSwitcher__Item'>
+        <NavLink to='/ProfileIns' activeClassName='PageSwitcher__Item--Active' className='PageSwitcher__Item'>
           Profile
         </NavLink>
-        <NavLink to='/StudentProfile' activeClassName='PageSwitcher__Item--Active' className='PageSwitcher__Item'>
+        <NavLink to='/InstructorProfile' activeClassName='PageSwitcher__Item--Active' className='PageSwitcher__Item'>
           Assignments
         </NavLink>
         
@@ -111,4 +111,4 @@ class Profile extends Component {
     }
 }
 
-export default Profile
+export default ProfileIns

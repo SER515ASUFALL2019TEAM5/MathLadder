@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import {
     atan2, chain, derivative, e, evaluate, log, pi, pow, round, sqrt
   } from 'mathjs';
+import { NavLink } from 'react-router-dom'
 import './AppDragDemo.css';
 let prop1 = "";
 let flag = false;
 let clear = false;
 let sum = null;
+
 const tasks = [
     {name:"1" ,category:"wip", bgcolor: "skyblue"},
     {name:"2", category:"wip", bgcolor:"skyblue"},
@@ -168,30 +170,53 @@ export default class AppDragDropDemo extends Component {
         }
         
         return (  
+            <div className='App__Form'>
+            <div className = 'Align_right1'>
+              
+            <NavLink to='/landing' activeClassName='PageSwitcher__Item--Active' className='PageSwitcher__Item'>
+              Home
+            </NavLink>
+            <NavLink to='/StudentProfile' activeClassName='PageSwitcher__Item--Active' className='PageSwitcher__Item'>
+              Assignments
+            </NavLink>
+            
+            <NavLink
+              exact
+              to='/'
+              activeClassName='PageSwitcher__Item--Active'
+              className='PageSwitcher__Item'>
+              Logout
+            </NavLink>
+            </div>
+            
 
             <div className="container-drag">
-                <h2 className="header">Math Ladder</h2>
+                <h2>Math Ladder</h2>
                 <div className="wip"
                     onDragOver={(e)=>this.onDragOver(e)}
                     onDrop={(e)=>{this.onDrop(e, "wip")}}>
-                    <span className="task-header">Operators</span>
+                    <span className="header"><h2>Operators</h2></span>
                     {this.state.workInProgress}
                 </div>
                 <div className="droppable" 
                     onDragOver={(e)=>this.onDragOver(e)}
                     onDrop={(e)=>this.onDrop(e, "complete")}
                 >
-                     <span className="task-header">Calculations</span>
-                     <span className="button"><button onClick ={()=> this.displayresult() }>Result</button></span>
-                     <span className="button"><button onClick ={()=> this.clearResult() }>Clear</button></span>
+                     <span className="header"><h2>Calculations</h2></span>
+                        
+                     
+                     <span className="Common_button2"><text onClick ={()=> this.displayresult() }>Result</text></span>
+                     <span className="Common_button2"><text onClick ={()=> this.clearResult() }>Clear</text></span>
                      {comp}
                      <text>{sum}</text>
                     {errorMessage}
+                    
+               
+                    
+                    </div>
                 </div>
 
-                <div className="task-header">
-                    
-                </div>
+                
 
 
             </div>
