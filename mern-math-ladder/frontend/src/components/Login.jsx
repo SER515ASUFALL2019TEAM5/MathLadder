@@ -123,7 +123,7 @@ class Login extends Component {
             <div className="Relative_position">
               <div className="col-md-6 mt-5 mx-auto">
                 <form validate onSubmit={this.onSubmit}>
-                  <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
+                  <h1 className="h3 mb-3 font-weight-normal">Please Login</h1>
                   <div className="form-group">
                     <label htmlFor="email">Email address</label>
                     <div className = "input_width"><input

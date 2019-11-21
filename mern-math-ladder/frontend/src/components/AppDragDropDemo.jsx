@@ -206,6 +206,7 @@ export default class AppDragDropDemo extends Component {
                         
                      
                      <span className="Common_button2"><text onClick ={()=> this.displayresult() }>Result</text></span>
+                     &nbsp;&nbsp;&nbsp;
                      <span className="Common_button2"><text onClick ={()=> this.clearResult() }>Clear</text></span>
                      {comp}
                      <text>{sum}</text>

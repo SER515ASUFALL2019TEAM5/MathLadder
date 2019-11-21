@@ -111,7 +111,7 @@ routeChange() {
               <div className = 'Align_right'>
               
               <div>
-                <ul className="unorderlist"> 
+                <ul> 
                   {this.state.assignmentList && this.state.assignmentList.map(function(listValue, i){
                   return <li ><a href ={"#/getAssignmentForStudent/" + listValue._id}>Assignment {i+1}</a><br></br>
                   </li>;

@@ -102,7 +102,7 @@ routeChange() {
           <div>
           <div className = 'Align_right'>
                 <button className="Common_button" onClick= {this.routeChange.bind(this)}>Create Assignments</button>
-                
+                &nbsp;&nbsp;&nbsp;
                 <button className="Common_button" onClick= {this.onAssignmentClick.bind(this)}>My Assignments</button>
                 
                 
@@ -112,7 +112,7 @@ routeChange() {
                
           <div className='App__Form'>      
           <div>
-                <ul className="unorderlist">
+                <ul>
                   {this.state.assignmentList && this.state.assignmentList.map(function(listValue, i){
                   return <li><a href ={"#/getAssignments/" + listValue._id}>Assignment {i+1}</a><br></br></li>;
                   })}         
