@@ -209,7 +209,10 @@ export default class AppDragDropDemo extends Component {
                      &nbsp;&nbsp;&nbsp;
                      <span className="Common_button2"><text onClick ={()=> this.clearResult() }>Clear</text></span>
                      {comp}
-                     <text>{sum}</text>
+                     <div className ="result">
+                         <label>Result: </label>
+                         {sum}
+                     </div>
                     {errorMessage}
                     
                
