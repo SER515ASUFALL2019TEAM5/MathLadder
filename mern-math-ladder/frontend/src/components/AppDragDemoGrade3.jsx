@@ -211,6 +211,7 @@ export default class AppDragDropDemo extends Component {
                      {comp}
 
                      <div className ="result">
+                         <label>Result: </label>
                          {sum}
                      </div>
 

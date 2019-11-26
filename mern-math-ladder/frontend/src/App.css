@@ -221,7 +221,7 @@
 .input_width{
   align-items: right;
   justify-content: center;
-  width: 65%;
+  width: 100%;
 }
 .Relative_position{
   position: relative;
