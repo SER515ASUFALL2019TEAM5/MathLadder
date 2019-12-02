@@ -1,3 +1,5 @@
+// Author: Sakshi
+
 import React, { Component } from 'react';
 import {register} from './userFunctions'
 import { NavLink } from 'react-router-dom'

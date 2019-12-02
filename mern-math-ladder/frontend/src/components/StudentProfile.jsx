@@ -1,3 +1,5 @@
+// Author: Chandan
+
 import React, { Component } from 'react';
 import {solveAssignmentCreatedByUser} from './userFunctions'
 import {addAssignment} from './userFunctions'

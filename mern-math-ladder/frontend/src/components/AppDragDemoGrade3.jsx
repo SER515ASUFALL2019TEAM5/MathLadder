@@ -1,3 +1,5 @@
+// Author: Chandan Yadav
+
 import React, { Component } from 'react';
 import {
     atan2, chain, derivative, e, evaluate, log, pi, pow, round, sqrt
