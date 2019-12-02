@@ -51,7 +51,7 @@ class answerQuestion extends Component {
 
     onChange(e) {
         const target = e.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const value = target.type === 'radio' ? target.checked : target.value;
         const name = target.name;
 
         if(value === true)
@@ -175,7 +175,7 @@ class answerQuestion extends Component {
                   <div className="form-group">
         
                     <input
-                      type="checkbox"
+                      type="radio"
                       className="check-box"
                       name="option1"
                       placeholder="Option"
@@ -191,7 +191,7 @@ class answerQuestion extends Component {
                   <div className="form-group">
                     
                     <input
-                      type="checkbox"
+                      type="radio"
                       className="check-box"
                       name="option2"
                       placeholder="Option"
@@ -208,7 +208,7 @@ class answerQuestion extends Component {
                   <div className="form-group">
                     
                     <input
-                      type="checkbox"
+                      type="radio"
                       className="check-box"
                       name="option3"
                       placeholder="Option"
@@ -224,7 +224,7 @@ class answerQuestion extends Component {
                   <div className="form-group">
                     
                     <input
-                      type="checkbox"
+                      type="radio"
                       className="check-box"
                       name="option4"
                       placeholder="Option"
