@@ -3,8 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/mathjs": "^6.0.2",
     "cmd": "^0.1.0",
     "code": "^5.2.4",
+    "jwt-decode": "^2.2.0",
+    "mathjs": "^6.2.3",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.1.2",
