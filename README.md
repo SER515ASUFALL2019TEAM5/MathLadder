@@ -1,3 +1,13 @@
+## Easy steps to run project
+1. clone the project to respective directry.
+2. Go inside project.
+3. cd frontend(go inside frontend folder)
+4. npm install (run this command inside frontend folder)
+5. cd ../ (come out of frontend folder)
+6. ./start.sh
+
+You can now run the project !! :)
+---------------------------------------------------------------------------------------------------------------
 Math Ladder:
 
 This is a web based application built using MERN Stack which makes tedious learning process of mathematics fun and joy. The application is user intuitive and helps the student to mark his performance and also the instructor to monitor the progress of the student. The instructor will be able to add and delete the users, autheticate the user and grade the assignments submitted by the user.
